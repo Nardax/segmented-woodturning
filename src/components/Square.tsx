@@ -6,7 +6,7 @@ export interface SquareProps {
     onClick: Function;
 }
 
-function Square(props:SquareProps) {
+function Square(props: SquareProps) {
     return (
         <button className="square" onClick={() => props.onClick()}>
             {props.value}
