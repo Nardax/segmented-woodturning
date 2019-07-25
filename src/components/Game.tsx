@@ -5,7 +5,8 @@ import './Game.css';
 export interface GameProps {}
 
 interface BoardHistory {
-    squareValues: Array<string>
+    squareValues: Array<string>;
+    winner: string | null;
 }
 
 interface GameState {
@@ -19,7 +20,10 @@ class Game extends React.Component<GameProps, GameState> {
     constructor(props: GameProps) {
         super(props);
         this.state = {
-            boardHistory: [{squareValues: Array<string>(9)}],
+            boardHistory: [{
+                            squareValues: Array<string>(9), 
+                            winner: null,
+                          }],
             move: 0,
             xIsNext: true,
             winner: null,
@@ -35,7 +39,7 @@ class Game extends React.Component<GameProps, GameState> {
             squareValues[i] = this.state.xIsNext ? 'X' : 'O';
             const winner = calculateWinner(squareValues);
             this.setState({
-                boardHistory: boardHistory.concat([{squareValues: squareValues}]),
+                boardHistory: boardHistory.concat([{squareValues: squareValues, winner: winner}]),
                 move: boardHistory.length,
                 xIsNext: !this.state.xIsNext,
                 winner: winner
@@ -43,11 +47,12 @@ class Game extends React.Component<GameProps, GameState> {
         }
     }
 
-    jumpTo(move: number)
+    jumpTo(boardHistory: BoardHistory, move: number)
     {
         this.setState({
             move: move,
             xIsNext: (move % 2) === 0,
+            winner: boardHistory.winner,
         });
     }
 
@@ -64,12 +69,12 @@ class Game extends React.Component<GameProps, GameState> {
             status = 'Next player: ' + (this.state.xIsNext ? 'X' : 'O');
         }
 
-        const moves = boardHistory.map((step, move) => {
+        const moves = boardHistory.map((boardHistory, move) => {
             const desc = move ? 'Go to move #' + move : 'Go to game start';
 
             return (
                 <li key={move}>
-                    <button onClick={() => this.jumpTo(move)}>{desc}</button>
+                    <button onClick={() => this.jumpTo(boardHistory, move)}>{desc}</button>
                 </li>
             );
         });
