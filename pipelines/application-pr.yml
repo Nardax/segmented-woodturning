@@ -1,0 +1,24 @@
+trigger:
+- master
+
+variables:
+  vmImageName: 'ubuntu-latest'
+
+stages:
+- stage: Build
+  displayName: Build stage
+  jobs:  
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: Npm@1
+      inputs:
+        command: 'install'
+        
+    - task: Bash@3
+      inputs:
+        targetType: 'inline'
+        script: 'npm run build'
