@@ -6,7 +6,7 @@ function App() {
     return (
         <div>
             <Header />
-            <div>This is the APP!</div>
+            <div>Good mornign Alex!</div>
             <Footer />
         </div>
     );
