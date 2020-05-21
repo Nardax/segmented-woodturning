@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Footer() {
+const Footer = () => {
     return (
-        <div>This is the footer!</div>
+        <div>&copy; 2020 Ryan Pedersen</div>
     );
 }
 
