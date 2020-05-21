@@ -1,8 +1,8 @@
 import React from 'react';
 
-function Header() {
+const Header = () => {
     return (
-        <div>This is the Header!</div>
+        <div>Segmented Woodturning</div>
     );
 }
 

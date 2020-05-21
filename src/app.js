@@ -1,12 +1,15 @@
 import React from 'react';
 import Header from './components/header/header';
+import Visualizer from './components/visualizer/visualizer';
+import ControlPanel from './components/controlPanel/controlPanel';
 import Footer from './components/footer/footer';
 
-function App() {
+const App = () => {
     return (
         <div>
             <Header />
-            <div>Good mornign Alex!</div>
+            <Visualizer />
+            <ControlPanel />
             <Footer />
         </div>
     );
