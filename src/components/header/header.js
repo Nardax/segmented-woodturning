@@ -2,7 +2,9 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div>Segmented Woodturning</div>
+        <header>
+            <h1>Segmented Woodturning</h1>
+        </header>
     );
 }
 

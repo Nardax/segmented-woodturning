@@ -6,31 +6,29 @@ const Vessel = () => {
 
     const addRing = () => {
         let newRing = {
-            text: "Ring " + rings.length,
-            key: rings.length
+            id: rings.length + 1
         };
 
         setRings(rings.concat(newRing));
     }
 
     const deleteRing = () => {
-        let filteredRings = rings.filter(r => r.key != rings.length - 1);
+        let filteredRings = rings.filter(r => r.id !== rings.length);
         setRings(filteredRings);
     }
 
     return (
         <div>
-            Vessel Configurations
+            Vessel Configuration
             <div>
-                <div>Number of Rings:</div>
                 <div>
+                    Rings:
                     <button onClick={addRing}>+</button>
                     <input type="number" id="rings" value={rings.length} />
                     <button onClick={deleteRing}>-</button>
                 </div>
             </div>
-            Ring Configurations
-            {rings.map(r => { return <Ring key={r.key} text={r.text} /> })}
+            {rings.map(r => { return <Ring key={r.id} id={r.id} /> })}
         </div>
     );
 }
