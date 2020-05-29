@@ -1,33 +1,51 @@
 import React from 'react';
-import { FreeCamera, Vector3, HemisphericLight, MeshBuilder } from '@babylonjs/core'
+import { ArcRotateCamera, Vector3, HemisphericLight, Axis, Mesh } from '@babylonjs/core'
 import SceneComponent from 'babylonjs-hook';
 
-let box;
+const createRing = (outerDiameter, width, height, numberOfSegments) => {
+    let angle = 180/numberOfSegments;
+    let innerDiameter = outerDiameter - width;
+    let outerLength = outerDiameter * Math.tan(angle * Math.PI/180);
+    let innerLength = innerDiameter * Math.tan(angle * Math.PI/180);
+
+    let a = new Vector3(innerDiameter, 0, innerLength * -1);
+    let b = new Vector3(outerDiameter, 0, outerLength * -1);
+    let c = new Vector3(outerDiameter, 0, outerLength);
+    let d = new Vector3(innerDiameter, 0, innerLength);
+
+    let segments = []
+    for (let i = 0; i < numberOfSegments; i++) {
+        segments[i] = {
+            vectors: [a, b, c, d], offset: i * angle * 2 * Math.PI/180
+        };
+    }
+
+    let ring = {
+        id: "ring0",
+        height: height,
+        offset: 0,
+        segments:segments
+    };
+
+    return ring;
+};
 
 const onSceneReady = scene => {
-  var camera = new FreeCamera("camera1", new Vector3(0, 5, -10), scene);
-  camera.setTarget(Vector3.Zero());
+    let camera = new ArcRotateCamera('Camera', Math.PI / 2, 0, 50, Vector3.Zero(), scene);
+    camera.setTarget(Vector3.Zero());
+    camera.attachControl(scene.getEngine().getRenderingCanvas(), true);
 
-  const canvas = scene.getEngine().getRenderingCanvas();
+    let light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
+    light.intensity = 0.7;
 
-  camera.attachControl(canvas, true);
-
-  var light = new HemisphericLight("light", new Vector3(0, 1, 0), scene);
-  light.intensity = 0.7;
-
-  box = MeshBuilder.CreateBox("box", {size: 2}, scene);
-  box.position.y = 1;
-
-  MeshBuilder.CreateGround("ground", {width: 6, height: 6}, scene);
+    let ring = createRing(10, 2, 2, 16);
+    ring.segments.forEach(s => {
+        let polygon = Mesh.ExtrudePolygon(ring.id, s.vectors, 2, scene);
+        polygon.rotate(Axis.Y, s.offset);
+    });
 }
 
 const onRender = scene => {
-  if (box !== undefined) {
-    var deltaTimeInMillis = scene.getEngine().getDeltaTime();
-
-    const rpm = 10;
-    box.rotation.y += ((rpm / 60) * Math.PI * 2 * (deltaTimeInMillis / 1000));
-  }
 }
 
 const Visualizer = () => {
