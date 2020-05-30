@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Ring from '../ring/ring';
+import Ring from './ring';
 
 const Vessel = () => {
     const [rings, setRings] = useState([])

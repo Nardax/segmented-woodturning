@@ -1,5 +1,5 @@
 import React from 'react';
-import Vessel from '../vessel/vessel';
+import Vessel from './vessel';
 
 const ControlPanel = () => {
     return (
