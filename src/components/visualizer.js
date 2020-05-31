@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
-import { ArcRotateCamera, Vector3, HemisphericLight, Axis, Mesh, Color4 } from '@babylonjs/core'
+import { ArcRotateCamera, Vector3, HemisphericLight, Axis, MeshBuilder, Color4 } from '@babylonjs/core'
 import SceneComponent from 'babylonjs-hook';
-//import SceneComponent from './sceneComponent';
 
 const getSegments = (ring, aggregateHeight) => {
     let angle = 180/ring.segments;
@@ -38,15 +37,15 @@ const onSceneReady = (scene) => {
     Object.keys(rings).map(key => {
         let ring = rings[key];
         let segments = getSegments(ring, aggregateHeight)
+        aggregateHeight += ring.height;
         segments.forEach(s => {
-            let polygon = Mesh.ExtrudePolygon(s.id, s.vectors, ring.height, scene);
+            let polygon = MeshBuilder.ExtrudePolygon(s.id, { shape: s.vectors, depth: ring.height }, scene);
             polygon.enableEdgesRendering();    
             polygon.edgesWidth = 4.0;
             polygon.edgesColor = new Color4(0, 0, 0, 1);
             polygon.rotate(Axis.Y, s.offset);
             polygon.movePOV(0, aggregateHeight, 0);
         });
-        aggregateHeight += ring.height;
     });
 }
 
