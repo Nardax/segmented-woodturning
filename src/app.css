@@ -3,6 +3,11 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+header, footer {
+    display: flex;
+    justify-content: center;
+}
+
 #root {
     display: flex;
     flex-direction: column;
@@ -32,8 +37,7 @@ body {
     border-style: solid;
 }
 
-header, footer {
-    display: flex;
-    justify-content: center;
+.ring {
+    width: 200px;
+    margin: 20px 5px;
 }
-

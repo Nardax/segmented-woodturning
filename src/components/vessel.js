@@ -26,10 +26,10 @@ const Vessel = () => {
 
     return (
         <div>
-            Vessel Configuration
+            <h3>Vessel Configuration</h3>
             <div>
                 <div>
-                    Rings:
+                    Rings: 
                     <button onClick={deleteRing}>-</button>
                     <input type="number" id="rings" value={Object.keys(rings).length} min="1" max="99"/>
                     <button onClick={addRing}>+</button>
