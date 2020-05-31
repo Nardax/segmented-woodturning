@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store';
 import Header from './components/header';
 import Visualizer from './components/visualizer';
 import ControlPanel from './components/controlPanel';
@@ -7,14 +9,14 @@ import './app.css';
 
 const App = () => {
     return (
-        <React.Fragment>
+        <Provider store={store}>
             <Header />
             <div className="flex-row">
                 <Visualizer />
                 <ControlPanel />
             </div>
             <Footer />
-        </React.Fragment>
+        </Provider>
     );
 }
 

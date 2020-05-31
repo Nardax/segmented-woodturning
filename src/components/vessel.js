@@ -1,20 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux'
 import Ring from './ring';
+import { ADD_RING, DELETE_RING } from '../redux/actionTypes';
 
 const Vessel = () => {
-    const [rings, setRings] = useState([])
+    const dispatch = useDispatch();
+
+    const rings = useSelector(state => state.vessel.rings);
 
     const addRing = () => {
-        let newRing = {
-            id: rings.length + 1
-        };
+        let ring = {
+             id: Object.keys(rings).length, 
+             segments: 10,
+             height: 2,
+             width: 2,
+             outerDiameter: 10
+        }
 
-        setRings(rings.concat(newRing));
+        dispatch({ type: ADD_RING, ring: ring });
     }
 
     const deleteRing = () => {
-        let filteredRings = rings.filter(r => r.id !== rings.length);
-        setRings(filteredRings);
+        dispatch({ type: DELETE_RING, ringId: Object.keys(rings).length - 1 });
     }
 
     return (
@@ -23,12 +30,15 @@ const Vessel = () => {
             <div>
                 <div>
                     Rings:
-                    <button onClick={addRing}>+</button>
-                    <input type="number" id="rings" value={rings.length} />
                     <button onClick={deleteRing}>-</button>
+                    <input type="number" id="rings" value={Object.keys(rings).length} min="1" max="99"/>
+                    <button onClick={addRing}>+</button>
                 </div>
             </div>
-            {rings.map(r => { return <Ring key={r.id} id={r.id} /> })}
+            {Object.keys(rings).map(key => { 
+                let ring = rings[key];
+                return <Ring key={ring.id} data={ring} /> 
+            })}
         </div>
     );
 }
