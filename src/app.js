@@ -11,10 +11,8 @@ const App = () => {
     return (
         <Provider store={store}>
             <Header />
-            <div className="flex-row">
-                <Visualizer />
-                <ControlPanel />
-            </div>
+            <Visualizer />
+            <ControlPanel />
             <Footer />
         </Provider>
     );

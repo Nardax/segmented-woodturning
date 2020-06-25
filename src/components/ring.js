@@ -30,24 +30,12 @@ const Ring = (props) => {
     }
 
     return (
-        <div className="ring">
-            <div className="ring-title">
-                <h3>Ring {ring.id + 1}</h3>
-            </div>
-            <div>
-                <div>
-                    Segments: <input type="number" onChange={updateSegments} value={ring.segments} step="any" min="1" max="99"/>
-                </div>
-                <div>
-                    Outer Diameter: <input type="number" onChange={updateOuterDiameter} value={ring.outerDiameter} step="any" min="1" max="99"/>
-                </div>
-                <div>
-                    Width: <input type="number" onChange={updateWidth} value={ring.width} step="any" min="1" max="99"/>
-                </div>
-                <div>
-                    Height: <input type="number" onChange={updateHeight} value={ring.height} step="any" min="1" max="99"/>
-                </div>
-            </div>
+        <div className="ring-details">
+            <div className="ring-id">{ring.id + 1}</div>
+            <div className="ring-segments"><input onChange={updateSegments} value={ring.segments} /></div>
+            <div className="ring-outer-diameter"><input onChange={updateOuterDiameter} value={ring.outerDiameter} /></div>
+            <div className="ring-width"><input onChange={updateWidth} value={ring.width} /></div>
+            <div className="ring-height"><input onChange={updateHeight} value={ring.height} /></div>
         </div>
     );
 }

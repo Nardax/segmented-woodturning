@@ -28,14 +28,19 @@ const Vessel = () => {
         <div>
             <h3>Vessel Configuration</h3>
             <div>
-                <div>
-                    Rings: 
-                    <button onClick={deleteRing}>-</button>
-                    <input type="number" id="rings" value={Object.keys(rings).length} min="1" max="99"/>
+                    Rings: <button onClick={deleteRing}>-</button>
+                    <input id="rings" value={Object.keys(rings).length} min="1" max="99"/>
                     <button onClick={addRing}>+</button>
-                </div>
+    
             </div>
-            {Object.keys(rings).map(key => { 
+            <div className="ring-details">
+                <div className="ring-id">ring</div>
+                <div className="ring-segments">segments</div>
+                <div className="ring-outer-diameter">outer diameter</div>
+                <div className="ring-width">width</div>
+                <div className="ring-height">height</div>
+            </div>
+            {Object.keys(rings).reverse().map(key => { 
                 let ring = rings[key];
                 return <Ring key={ring.id} data={ring} /> 
             })}
