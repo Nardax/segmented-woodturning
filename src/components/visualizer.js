@@ -5,6 +5,7 @@ import SceneComponent from 'babylonjs-hook';
 
 const getSegments = (ring, aggregateHeight) => {
     let angle = 180/ring.segments;
+    let ringOffset = (angle * (ring.offset / 100)) * 2 * Math.PI/180;
     let innerDiameter = ring.outerDiameter - ring.width;
     let outerLength = ring.outerDiameter * Math.tan(angle * Math.PI/180);
     let innerLength = innerDiameter * Math.tan(angle * Math.PI/180);
@@ -18,7 +19,7 @@ const getSegments = (ring, aggregateHeight) => {
     for (let i = 0; i < ring.segments; i++) {
         segments[i] = {
             id: `${ring.id}-${i}`,
-            vectors: [a, b, c, d], offset: i * angle * 2 * Math.PI/180
+            vectors: [a, b, c, d], offset: (i * angle * 2 * Math.PI/180) + ringOffset
         };
     }
 

@@ -46,7 +46,7 @@ footer {
 
 .ring-details {
     display: grid;
-    grid-template-columns: 12% repeat(4, 22%);
+    grid-template-columns: 10% repeat(5, 18%);
 }
 
 .ring-details div {
