@@ -26,7 +26,7 @@ const getSegments = (ring, aggregateHeight) => {
 };
 
 const onSceneReady = (scene) => {
-    let camera = new ArcRotateCamera('Camera', Math.PI / 2, Math.PI / 180 * 80, 50, Vector3.Zero(), scene);
+    let camera = new ArcRotateCamera('Camera', Math.PI / 2, Math.PI / 180 * 60, 60, Vector3.Zero(), scene);
     camera.setTarget(Vector3.Zero());
     camera.attachControl(scene.getEngine().getRenderingCanvas(), true);
 
