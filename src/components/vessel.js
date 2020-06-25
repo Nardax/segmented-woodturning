@@ -39,6 +39,7 @@ const Vessel = () => {
                 <div className="ring-outer-diameter">outer diameter</div>
                 <div className="ring-width">width</div>
                 <div className="ring-height">height</div>
+                <div className="ring-offset">offset %</div>
             </div>
             {Object.keys(rings).reverse().map(key => { 
                 let ring = rings[key];
