@@ -6,8 +6,8 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const FacebookStrategy = require('passport-facebook');
-const FACEBOOK_APP_ID = 899562153883740;
-const FACEBOOK_APP_SECRET = 328d752f418082050bd1477b8caf8ca5;
+const FACEBOOK_APP_ID = '899562153883740';
+const FACEBOOK_APP_SECRET = '328d752f418082050bd1477b8caf8ca5';
 
 
 app.use(bodyParser.json());
@@ -19,7 +19,7 @@ app.use(session({
 
 const fbOpts = {
     clientID:FACEBOOK_APP_ID,
-    clientSecret: FACEBOOK_APP_SECRET,
+    clientSecret:FACEBOOK_APP_SECRET,
     callbackURL: 'http://localhost:3000/auth/facebook/callback',
     profileFields: ['emails'],
 };
