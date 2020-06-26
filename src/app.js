@@ -5,7 +5,7 @@ import Header from './components/header';
 import Visualizer from './components/visualizer';
 import ControlPanel from './components/controlPanel';
 import Footer from './components/footer';
-import './app.css';
+import './app.scss';
 
 const App = () => {
     return (
@@ -18,4 +18,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default App; 
