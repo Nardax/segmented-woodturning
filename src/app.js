@@ -6,10 +6,12 @@ import Visualizer from './components/visualizer';
 import ControlPanel from './components/controlPanel';
 import Footer from './components/footer';
 import './app.css';
+import Facebook from './backend/auth/facebook-auth/facebook-auth';
 
 const App = () => {
     return (
         <Provider store={store}>
+            <Facebook /> 
             <Header />
             <Visualizer />
             <ControlPanel />
@@ -18,4 +20,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default App; 
