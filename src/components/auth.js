@@ -1,5 +1,6 @@
 import React from 'react';
 import FacebookLoginBtn from 'react-facebook-login';
+import MicrosoftLogin from "react-microsoft-login";
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
 
@@ -18,6 +19,15 @@ const Auth = () => {
         };
     };
 
+    const processMicrosoftLogin = (err, data) => {
+        if(data) {
+            dispatch({ 
+                type: LOGIN, 
+                name: data.authResponseWithAccessToken.account.name
+            });
+        };
+    };
+
     if(auth.isAuthenticated) {
         return (
             <div>
@@ -28,11 +38,17 @@ const Auth = () => {
     }
     else {
         return (
-            <FacebookLoginBtn
-                appId = '899562153883740'
-                autoLoad={true}
-                fields='name,picture'
-                callback={processFacebookLogin} />
+            <div>
+                <FacebookLoginBtn
+                    appId = '899562153883740'
+                    autoLoad={true}
+                    fields='name,picture'
+                    callback={processFacebookLogin} />
+                
+                <MicrosoftLogin 
+                    clientId='c974b4da-da8e-4712-b57f-b0b88e6683e1' 
+                    authCallback={processMicrosoftLogin} />
+            </div>
         );
     }
 };
