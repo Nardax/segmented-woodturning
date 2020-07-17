@@ -5,7 +5,6 @@ const Header = () => {
     return (
         <header>
             <h1>Segmented Woodturning</h1>
-            {/* <Facebook />  */}
         </header>
 
     );

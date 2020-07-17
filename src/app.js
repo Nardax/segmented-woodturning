@@ -6,12 +6,12 @@ import Visualizer from './components/visualizer';
 import ControlPanel from './components/controlPanel';
 import Footer from './components/footer';
 import './app.css';
-import Facebook from './components/auth';
+import Auth from './components/auth';
 
 const App = () => {
     return (
         <Provider store={store}>
-            <Facebook /> 
+            <Auth /> 
             <Header />
             <Visualizer />
             <ControlPanel />
