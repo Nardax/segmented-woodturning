@@ -3,6 +3,7 @@ import FacebookLoginBtn from 'react-facebook-login';
 import MicrosoftLogin from "react-microsoft-login";
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
+import { useGoogleLogin } from 'react-google-login'
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -27,6 +28,27 @@ const Auth = () => {
             });
         };
     };
+    const { signIn, loaded } = useGoogleLogin({
+        onSuccess,
+        onAutoLoadFinished,
+        clientId,
+        cookiePolicy,
+        loginHint,
+        hostedDomain,
+        autoLoad,
+        isSignedIn,
+        fetchBasicProfile,
+        redirectUri,
+        discoveryDocs,
+        onFailure,
+        uxMode,
+        scope,
+        accessType,
+        responseType,
+        jsSrc,
+        onRequest,
+        prompt
+      })
 
     if(auth.isAuthenticated) {
         return (
