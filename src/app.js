@@ -7,12 +7,14 @@ import ControlPanel from './components/controlPanel';
 import Footer from './components/footer';
 import './app.css';
 import Auth from './components/auth';
+import Login from './components/login';
 
 const App = () => {
     return (
         <Provider store={store}>
             <Auth /> 
             <Header />
+            <Login />
             <Visualizer />
             <ControlPanel />
             <Footer />
