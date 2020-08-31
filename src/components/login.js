@@ -5,11 +5,11 @@ import {facebookConfig, googleConfig} from "social-config";
 function Sample() {
   // replace constructor w/ a `useState`-ish
   const [
-    shouldShowModal,
+    // shouldShowModal,
     setShouldShowModal,
-    isLoading,
+    // isLoading,
     setIsLoading,
-    error,
+    // error,
     setError,
   ] = useLogin(null);
 
