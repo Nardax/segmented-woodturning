@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactModalLogin from 'react-modal-login';
-import {facebookConfig, googleConfig} from "social-config";
+import Auth from '../components/auth';
 
 function Sample() {
   // replace constructor w/ a `useState`-ish
@@ -70,32 +70,30 @@ function Sample() {
       </button>
 
       <ReactModalLogin
-        visible={this.state.showModal}
-        onCloseModal={this.closeModal.bind(this)}
-        loading={this.state.loading}
-        error={this.state.error}
-        tabs={{
-          onChange: this.onTabsChange.bind(this)
-        }}
+        visible={showModal}
+        onCloseModal={closeModal}
+        loading={loading}
+        error={error}
+        tabs={{onChange: onTabsChange}}
         loginError={{
           label: "Couldn't sign in, please try again."
         }}
         registerError={{
           label: "Couldn't sign up, please try again."
         }}
-        startLoading={this.startLoading.bind(this)}
-        finishLoading={this.finishLoading.bind(this)}
+        startLoading={startLoading}
+        finishLoading={finishLoading}
         providers={{
           facebook: {
-            config: facebookConfig,
-            onLoginSuccess: this.onLoginSuccess.bind(this),
-            onLoginFail: this.onLoginFail.bind(this),
+            config: {FacebookLogin},
+            onLoginSuccess: {onLoginSuccess},
+            onLoginFail: {onLoginFail},
             label: "Continue with Facebook"
           },
           google: {
-            config: googleConfig,
-            onLoginSuccess: this.onLoginSuccess.bind(this),
-            onLoginFail: this.onLoginFail.bind(this),
+            config: {GoogleLogin},
+            onLoginSuccess: {onLoginSuccess},
+            onLoginFail: {onLoginFail},
             label: "Continue with Google"
           }
         }}
