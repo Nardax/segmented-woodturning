@@ -59,7 +59,7 @@ function Sample() {
     }
   });
 
-  // I think something is wrong w/ this return syntax
+  // trying to fix the return syntax
   return (
     <div>
 
