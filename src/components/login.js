@@ -1,105 +1,23 @@
-import React from 'react';
-import ReactModalLogin from 'react-modal-login';
+import React, { useState } from 'react';
 import Auth from '../components/auth';
+import Modal from 'react-modal';
 
-function Sample() {
-  // replace constructor w/ a `useState`-ish
-  const [
-    // shouldShowModal,
-    setShouldShowModal,
-    // isLoading,
-    setIsLoading,
-    // error,
-    setError,
-  ] = useLogin(null);
+function Login () {
 
-  // so each individual useEffect can list the props is subscribes to as its second arg (after the closure)
-  // alternatively, you could probably combine these into one effect
-  useEffect(() => {
-    function openModal() {
-      setShouldShowModal(true);
-    }
-  });
+    const [modalIsOpen, setModalIsOpen] = useState(false)
 
-  useEffect(() => {
-    function closeModal() {
-      setShouldShowModal(false);
-      setError(null);
-    }
-  });
-    
-  useEffect(() => {
-    function onLoginSuccess(method) {
-      console.log('logged successfully with ' + method);
-    }
-  });
-
-  useEffect(() => {
-    function onLoginFail(method, response) {
-      console.log('logging failed with ' + method);
-      setError(response);
-    }
-  });
-
-  useEffect(() => {
-    function startLoading() {
-      setIsLoading(true);
-    }
-  });
-
-  useEffect(() => {
-    function finishLoading() {
-      setIsLoading(false);
-    }
-  });
-
-  useEffect(() => {
-    function onTabsChange() {
-      setError(null);
-    }
-  });
-
-  // trying to fix the return syntax
-  return (
-    <div>
-
-      <button
-        onClick={() => this.openModal()}
-      >
-        Open Modal
-      </button>
-
-      <ReactModalLogin
-        visible={showModal}
-        onCloseModal={closeModal}
-        loading={loading}
-        error={error}
-        tabs={{onChange: onTabsChange}}
-        loginError={{
-          label: "Couldn't sign in, please try again."
-        }}
-        registerError={{
-          label: "Couldn't sign up, please try again."
-        }}
-        startLoading={startLoading}
-        finishLoading={finishLoading}
-        providers={{
-          facebook: {
-            config: {FacebookLogin},
-            onLoginSuccess: {onLoginSuccess},
-            onLoginFail: {onLoginFail},
-            label: "Continue with Facebook"
-          },
-          google: {
-            config: {GoogleLogin},
-            onLoginSuccess: {onLoginSuccess},
-            onLoginFail: {onLoginFail},
-            label: "Continue with Google"
-          }
-        }}
-      />
-    </div>
-  )
+    return (
+        <div className='Login'>
+            <button onClick={() => setModalIsOpen(true)}>Login</button>
+            <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)}>
+                <h2>Login</h2>
+                <p>Sign in buttons</p>
+                <div>
+                    <button onClick={() => setModalIsOpen(false)}>Close</button>
+                </div>
+            </Modal>
+        </div>
+    )
 }
 
 export default Login;
