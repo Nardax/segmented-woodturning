@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import MicrosoftLogin from "react-microsoft-login";
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
 import GoogleLogin from 'react-google-login';
-
 
 const Auth = () => {
     const dispatch = useDispatch();

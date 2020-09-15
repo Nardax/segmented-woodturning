@@ -4,7 +4,7 @@ import Facebook from './auth';
 const Header = () => {
     return (
         <header>
-            <h1>Segmented Woodturning</h1>
+            <h1>Segmented Woodturning</h1>          
         </header>
 
     );
