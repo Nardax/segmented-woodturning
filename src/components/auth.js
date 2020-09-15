@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import FacebookLogin from 'react-facebook-login';
 import MicrosoftLogin from "react-microsoft-login";
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
 import GoogleLogin from 'react-google-login';
-
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -45,10 +44,10 @@ const Auth = () => {
     }
     else {
         return (
-            <div>
+            <div id='LoginFeatures'>
                 <FacebookLogin
                     appId = '899562153883740'
-                    autoLoad={true}
+                    autoLoad={false}
                     fields='name,picture'
                     callback={processFacebookLogin} />
                 
@@ -58,7 +57,7 @@ const Auth = () => {
 
                 <GoogleLogin
                     clientId="1073835238058-l9d65klcsm92kvo801cjjkfevtn0fqfa.apps.googleusercontent.com"
-                    buttonText="Login"
+                    buttonText="Sign in With Google"
                     onSuccess={responseGoogle}
                     onFailure={responseGoogle}
                     cookiePolicy={'single_host_origin'}

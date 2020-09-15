@@ -7,12 +7,24 @@
     "babylonjs-hook": "0.0.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-bootstrap-dialog": "^0.13.0",
+    "react-dialog": "^1.0.2",
     "react-dom": "^16.13.1",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.1.21",
+<<<<<<< HEAD
+    "react-microsoft-login": "^1.10.0",
+    "react-modal": "^3.11.2",
+    "react-modal-login": "^1.4.5",
+    "react-redux": "^7.2.0",
+=======
     "react-microsoft-login": "^1.10.1",
+    "react-modal": "^3.11.2",
+    "react-modal-login": "^1.4.5",
     "react-redux": "^7.2.1",
+>>>>>>> 82de9fbfdd25780ef85eab2f127c898b93d94740
     "react-scripts": "^3.4.3",
+    "react-select": "^3.1.0",
     "redux": "^4.0.5"
   },
   "scripts": {
