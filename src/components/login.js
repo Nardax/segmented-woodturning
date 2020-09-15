@@ -9,7 +9,12 @@ const customStyles = {
       right                 : 'auto',
       bottom                : 'auto',
       marginRight           : '-50%',
-      transform             : 'translate(-50%, -50%)'
+      transform             : 'translate(-50%, -50%)',
+      width                 : '15%',
+      height                : '19%',
+      borderColor           : 'grey',
+      borderWidth           : '8px',
+      borderRadius          : '5%',
     }
   };
 
@@ -21,7 +26,7 @@ function Login () {
         <div className='Login'>
             <button onClick={() => setModalIsOpen(true)}>Login</button>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
-                <h2>Login</h2>
+                {/* <h2>Select Login</h2> */}
                 <Auth >
                 </Auth>
                 <div>

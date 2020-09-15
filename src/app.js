@@ -12,9 +12,9 @@ import Login from './components/login';
 const App = () => {
     return (
         <Provider store={store}>
-            <Auth /> 
+            {/* <Auth />  */}
             <Header />
-            <Login />
+            {/* <Login /> */}
             <Visualizer />
             <ControlPanel />
             <Footer />
