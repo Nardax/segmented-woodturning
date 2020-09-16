@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Auth from '../components/auth';
 import Modal from 'react-modal';
+import { LOGIN } from '../redux/actionTypes';
 
 const customStyles = {
     content : {
@@ -18,6 +19,11 @@ const customStyles = {
     }
   };
 
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  }
+
 function Login () {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -31,6 +37,9 @@ function Login () {
                 </Auth>
                 <div>
                     <button onClick={() => setModalIsOpen(false)}>Close</button>
+                </div>
+                <div>
+                    <button onClick={logout}>Logout</button>
                 </div>
             </Modal>
         </div>
