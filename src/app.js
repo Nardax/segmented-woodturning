@@ -14,11 +14,7 @@ const App = () => {
         <Provider store={store}>
             {/* <Auth />  */}
             <Header />
-<<<<<<< HEAD
             {/* <Login /> */}
-=======
-            <Login />
->>>>>>> 82de9fbfdd25780ef85eab2f127c898b93d94740
             <Visualizer />
             <ControlPanel />
             <Footer />
