@@ -4,6 +4,7 @@ import MicrosoftLogin from "react-microsoft-login";
 import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
 import GoogleLogin from 'react-google-login';
+import './auth.scss';
 
 const Auth = () => {
     const dispatch = useDispatch();

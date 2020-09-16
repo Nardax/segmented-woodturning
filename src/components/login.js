@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Auth from '../components/auth';
 import Modal from 'react-modal';
+import { LOGIN } from '../redux/actionTypes';
 
 const customStyles = {
     content : {
@@ -31,6 +32,9 @@ function Login () {
                 </Auth>
                 <div>
                     <button onClick={() => setModalIsOpen(false)}>Close</button>
+                </div>
+                <div>
+                    <button onClick={() => LOGIN(true)}>LogOut</button>
                 </div>
             </Modal>
         </div>
