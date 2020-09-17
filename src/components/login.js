@@ -40,7 +40,7 @@ function Login () {
                     <href onClick={() => setModalIsOpen(false)}>Cancel</href>
                 </div>
                 <div>
-                    <button onClick={logout}>Logout</button>
+                    <href onClick={logout}>Logout</href>
                 </div>
             </Modal>
         </div>
