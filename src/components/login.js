@@ -37,7 +37,7 @@ function Login () {
                 <Auth >
                 </Auth>
                 <div>
-                    <button onClick={() => setModalIsOpen(false)}>Close</button>
+                    <href onClick={() => setModalIsOpen(false)}>Cancel</href>
                 </div>
                 <div>
                     <button onClick={logout}>Logout</button>
