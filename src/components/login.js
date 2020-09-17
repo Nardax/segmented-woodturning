@@ -19,6 +19,11 @@ const customStyles = {
     }
   };
 
+  const logout = () => {
+    localStorage.clear();
+    window.location.href = "/login";
+  }
+
 function Login () {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
@@ -34,7 +39,7 @@ function Login () {
                     <button onClick={() => setModalIsOpen(false)}>Close</button>
                 </div>
                 <div>
-                    <button onClick={() => LOGIN(true)}>LogOut</button>
+                    <button onClick={logout}>Logout</button>
                 </div>
             </Modal>
         </div>
