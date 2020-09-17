@@ -5,7 +5,7 @@ import Header from './components/header';
 import Visualizer from './components/visualizer';
 import ControlPanel from './components/controlPanel';
 import Footer from './components/footer';
-import './app.css';
+import './app.scss';
 import Auth from './components/auth';
 import Login from './components/login';
 
