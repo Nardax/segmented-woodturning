@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { LOGIN } from '../redux/actionTypes';
 import GoogleLogin from 'react-google-login';
 import './auth.scss';
+import headShot from '../assets/headShot.jpg'
 
 const Auth = () => {
     const dispatch = useDispatch();
@@ -17,6 +18,7 @@ const Auth = () => {
                 type: LOGIN, 
                 name: response.name,
                 picture: response.picture.data.url
+                // picture: headShot
             });
         };
     };
@@ -25,7 +27,8 @@ const Auth = () => {
         if(data) {
             dispatch({ 
                 type: LOGIN, 
-                name: data.authResponseWithAccessToken.account.name
+                name: data.authResponseWithAccessToken.account.name,
+                picture: headShot
             });
         };
     };
