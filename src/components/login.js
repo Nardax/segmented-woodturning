@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Auth from '../components/auth';
 import Modal from 'react-modal';
 import { LOGIN } from '../redux/actionTypes';
+import './login.scss';
 
 const customStyles = {
     content : {
