@@ -13,7 +13,7 @@ const customStyles = {
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
       width                 : '15%',
-      height                : '19%',
+      height                : '30%',
       borderColor           : 'grey',
       borderWidth           : '8px',
       borderRadius          : '5%',
@@ -22,29 +22,33 @@ const customStyles = {
 
   const logout = () => {
     localStorage.clear();
-    window.location.href = "/login";
+    window.location.href = "/logout";
   }
 
 function Login () {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
-    return (
+
+        return (
         <div className='Login'>
             <href onClick={() => setModalIsOpen(true)}>Login</href>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
-                {/* <h2>Select Login</h2> */}
-                <Auth >
-                </Auth>
+                
+               
+                
                 <div>
                     <href onClick={() => setModalIsOpen(false)}>Cancel</href>
                 </div>
+
                 <div>
-                    <href onClick={logout}>Logout</href>
+                <Auth onClick={(logout) => setModalIsOpen(false)}></Auth><href onClick={logout}>Logout</href>
                 </div>
+
             </Modal>
         </div>
     )
 }
+
 
 export default Login;
