@@ -35,14 +35,14 @@ function Login () {
             <href onClick={() => setModalIsOpen(true)}>Login</href>
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
                 
-               
-                
                 <div>
-                    <href onClick={() => setModalIsOpen(false)}>Cancel</href>
-                </div>
 
-                <div>
-                <Auth onClick={(logout) => setModalIsOpen(false)}></Auth><href onClick={logout}>Logout</href>
+                <Auth>
+                <button onClick={() => setModalIsOpen(false)}></button>
+                </Auth>
+                <href onClick={() => setModalIsOpen(false)}>Cancel</href>
+                <href onClick={logout}>Logout</href>
+                
                 </div>
 
             </Modal>
