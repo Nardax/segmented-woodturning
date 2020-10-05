@@ -32,17 +32,21 @@ function Login () {
 
         return (
         <div className='Login'>
+
             <href onClick={() => setModalIsOpen(true)}>Login</href>
+            <href onChange={() => setModalIsOpen(true)}>Logout</href>
+
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
                 
                 <div>
 
                 <Auth>
-                <button onClick={() => setModalIsOpen(false)}></button>
+                <button onChange={() => setModalIsOpen(false)}></button>
                 </Auth>
+
                 <href onClick={() => setModalIsOpen(false)}>Cancel</href>
                 <href onClick={logout}>Logout</href>
-                
+
                 </div>
 
             </Modal>
