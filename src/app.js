@@ -8,6 +8,7 @@ import Footer from './components/footer';
 import './app.scss';
 import Auth from './components/auth';
 import Login from './components/login';
+import Print from "./components/print";
 
 const App = () => {
     return (
@@ -17,6 +18,7 @@ const App = () => {
             {/* <Login /> */}
             <Visualizer />
             <ControlPanel />
+            <Print />
             <Footer />
         </Provider>
     );
