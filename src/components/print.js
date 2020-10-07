@@ -22,22 +22,17 @@ class Print extends React.Component {
     }
   }
    
-  class Example extends React.Component {
-    render() {
+  const Example = () => {
+    // const componentRef = useRef();
       return (
         <div>
           <ReactToPrint
-            trigger={() => {
-              // NOTE: could just as easily return <SomeComponent />. Do NOT pass an `onClick` prop
-              // to the root node of the returned component as it will be overwritten.
-              return <a href="#">Print this out!</a>;
-            }}
-            content={() => this.componentRef}
+             trigger={() => <button>Print this out!</button>}
+            //  content={() => componentRef.current}
           />
-          <Print ref={el => (this.componentRef = el)} />
+           {/* <Print ref={componentRef} /> */}
         </div>
       );
     }
-  }
 
 export default Print;
