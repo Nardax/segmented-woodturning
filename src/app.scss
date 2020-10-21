@@ -23,10 +23,6 @@ body {
 
 header {
     grid-area: header;
-    
-    Login {
-        float: left;
-    }
 }
 
 footer {
@@ -60,5 +56,10 @@ footer {
 input {
     font-size: smaller;
     width: 50px;
+}
+
+jpg {
+    width: 10px;
+    height: 10px;
 }
 
