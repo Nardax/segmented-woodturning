@@ -3,14 +3,14 @@ import { LOGIN } from '../redux/actionTypes';
 import Facebook from './auth';
 import Login from './login';
 
+
 const Header = () => {
     return (
         <header>
-            <h1>
-            <span>Segmented Woodturning  
             <Login >
             </Login>
-            </span>
+            <h1>
+            <span>Segmented Woodturning</span>
             </h1>
         </header>
 

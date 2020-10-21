@@ -13,7 +13,7 @@ const customStyles = {
       marginRight           : '-50%',
       transform             : 'translate(-50%, -50%)',
       width                 : '15%',
-      height                : '30%',
+      height                : '35%',
       borderColor           : 'grey',
       borderWidth           : '8px',
       borderRadius          : '5%',
@@ -25,31 +25,40 @@ const customStyles = {
     window.location.href = "/logout";
   }
 
+
+
 function Login () {
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
+
+    // const onClose = e => {
+    //   <button onClick={() => modalIsOpen(true)}>Lougout</button>
+    // }
 
 
         return (
         <div className='Login'>
 
-            <href onClick={() => setModalIsOpen(true)}>Login</href>
-            {/* <href onChange={() => setModalIsOpen(true)}>Logout</href> */}
+            <button  onClick={() => setModalIsOpen(true)}>Login</button>
+         
 
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
                 
                 <div>
 
                 <Auth>
-                <button onChange={() => setModalIsOpen(false)}></button>
+                {/* <input onChange={onClose} value={Login.modalIsOpen}/> */}
+                <input isOpen={modalIsOpen} />
                 </Auth>
 
-                <href onClick={() => setModalIsOpen(false)}>Cancel</href>
-                <href onClick={logout}>Logout</href>
+                
+                {/* <button id='Logout' onClick={logout}>Logout</button> */}
+                <button id='Cancel' onClick={() => setModalIsOpen(false)}>Cancel</button>
 
                 </div>
 
             </Modal>
+            
         </div>
     )
 }

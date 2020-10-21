@@ -13,8 +13,9 @@ const App = () => {
     return (
         <Provider store={store}>
             {/* <Auth />  */}
-            <Header />
             {/* <Login /> */}
+            <Header />
+            
             <Visualizer />
             <ControlPanel />
             <Footer />

@@ -23,6 +23,7 @@ body {
 
 header {
     grid-area: header;
+    position: relative;
 }
 
 footer {
